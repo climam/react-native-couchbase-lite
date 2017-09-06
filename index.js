@@ -24,7 +24,7 @@ Couchbase.init(url => {
   // stop and start are needed because the OS appears to kill the listener when the app
   // becomes inactive (when the screen is locked, or its put in the background)
   AppState.addEventListener('change', (appState) => {
-    if (String(appState).match(/inactive|background/)) {
+    if (String(appState).match(/background/)) {
       Couchbase.stopListener();
     } else if (String(appState).match(/active/)) {
       Couchbase.startListener();
